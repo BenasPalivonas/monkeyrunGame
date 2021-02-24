@@ -9,6 +9,7 @@ var button = document.getElementById("button");
 var proTip = document.getElementById("proTip");
 const openModalButton = document.getElementById("open-button");
 var name = document.getElementById("name");
+
 const submitScore = (name, score) => {
     if (name) {
         fetch('https://hidden-mesa-40035.herokuapp.com/addToLeaderBoard', {
@@ -24,28 +25,26 @@ const submitScore = (name, score) => {
         )
     }
 }
+var scoreInterval;
 var startGame = () => {
     leaderBoard.style.display = "none";
     openModalButton.style.display = "none";
     name.style.visibility = "hidden";
-    console.log("clicking");
     score = 0;
     gamestarted = true;
     block.style.visibility = "visible";
     block.classList.add("animateBlock")
     button.style.display = "none";
     proTip.style.display = "none";
-    var scoreInterval = setInterval(() => {
-        console.log("adding");
+    scoreInterval = setInterval(() => {
+        console.log("running");
         if (gamestarted == true) {
             score++;
-        }
-        if (gamestarted == false) {
-            clearInterval(scoreInterval);
         }
         return 0;
     }, 6000);
 }
+
 button.onclick = startGame;
 //speech recognition setup
 var message = document.querySelector('#message');
@@ -62,7 +61,7 @@ recognition.interimResults = false;
 recognition.onresult = function (event) {
     var last = event.results.length - 1;
     command = event.results[last][0].transcript;
-    console.log('Voice Input: ' + command + '.');
+    //console.log('Voice Input: ' + command + '.');
     text.textContent = 'Voice Input : ' + command + '.';
     if (!character.classList.contains("animate")) {
         if (command.toLowerCase().includes("monkey jump")) {
@@ -111,8 +110,11 @@ var checkDead = setInterval(() => {
 }, 50)
 
 var endGame = () => {
+    clearInterval(scoreInterval);
     addLeaders();
-    console.log("called")
+    if (character.classList = "animate") {
+        character.classList.remove("animate");
+    }
     submitScore(name.value.toLowerCase(), score);
     gamestarted = false;
     block.style.visibility = "hidden";
@@ -127,9 +129,7 @@ var endGame = () => {
 
 
 //skins
-var test = () => {
-    console.log("test");
-}
+
 
 var ul = document.getElementById("skins");
 import skins from "./skinList.js";
@@ -137,7 +137,7 @@ for (let i = 0; i < skins.length; i++) {
     var li = document.createElement("li");
     li.style.backgroundImage = "url" + "(" + skins[i].url + ")";
     li.onclick = () => {
-        console.log(skins[i].url);
+
         character.style.backgroundImage = "url" + "(" + skins[i].url + ")";
     };
     ul.appendChild(li);
@@ -168,7 +168,7 @@ overlay.onclick = () => {
 
 //LeaderBoard
 var leaderBoard = document.getElementById("leaderBoard");
-console.log(leaderBoard);
+
 const addLeaders = () => {
     leaderBoard.replaceChildren();
     var p = document.createElement("p");
