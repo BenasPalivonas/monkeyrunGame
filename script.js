@@ -111,11 +111,12 @@ var checkDead = setInterval(() => {
 
 var endGame = () => {
     clearInterval(scoreInterval);
+    submitScore(name.value.toLowerCase(), score);
     addLeaders();
     if (character.classList = "animate") {
         character.classList.remove("animate");
     }
-    submitScore(name.value.toLowerCase(), score);
+
     gamestarted = false;
     block.style.visibility = "hidden";
     button.style.display = "block";
