@@ -66,10 +66,13 @@ var skins = [
         url: "hellokitty.png"
     },
     {
-        url: "drake.png"
+        url: "Drake.png"
     },
     {
         url: "lilpeep.png"
+    },
+    {
+        url: "Geralt.png"
     }
 ]
 export default skins;
