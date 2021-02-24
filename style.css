@@ -1,18 +1,21 @@
 *{
     padding:0;
     margin:0;
+    font-family: "RubberBiscuit";
 }
 #game{
     width:100%;
     height:800px;
     border:1px solid black;
+    background-image: url("monkegif.gif");
+    background-repeat: repeat;
 }
 #character {
     width:300px;
     height:500px;
-
+    background-image: url("realmonke.png");
     position:relative;
-    top:150px;
+    top:290px;
 }
 img{
     width: 100%;
@@ -20,30 +23,209 @@ img{
 }
 
 .animate{
-    animation:jump 1500ms infinite;
+    animation:jump 2500ms infinite;
 }
 @keyframes jump{
     0%{
-        top:150px;
+        top:290px;
     }
     30%{
-        top:50px;
+        top:0px;
     }
     70%{
-        top:50px;
+        top:0px;
     }
-    100%{top:150px;}
+    100%{top:290px;}
 }
 #block{
-    width:20px;
-    height: 20px;
-    background-color: blue;
+    width:125px;
+    height: 125px;
     position: relative;
-    top: 130px;
-    left:810px;
-    animation: block 3s infinite linear;
+    top: 150px;
+    left:100%;
+    visibility: hidden;
+    background-image:url("minion.png");
+
+}
+.animateBlock{
+animation: block 6s infinite linear;
 }
 @keyframes block{
-    0%{left:810px;}
-    100%{left:-40px;}
+    0%{left:100%;}
+    100%{left:-10%;}
+}
+
+.button4{
+font-size:30px;
+display: "inline-block";
+position: fixed;
+padding:2em 3em;
+margin:0 0.1em 0.1em 0;
+border:0.16em solid rgb(224, 4, 4);
+background-color: rgb(224, 4, 4);
+border-radius:2em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Arcade';
+font-weight:300;
+color:#FFFFFF;
+text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+text-align:center;
+transition: all 0.2s;
+top:50%;
+outline: none;
+left:50%;
+transform: translate(-50%, -50%);
+
+}
+.button4:hover{
+border-color: rgba(255,255,255,1);
+}
+#score{
+    position: fixed;
+    font-size:2rem;
+    left:50%;
+    color:red;
+    top:10%;
+    transform: translate(-50%, -50%);
+}
+#proTip{
+top:30%;
+left:50%;
+position: fixed;
+transform:translate(-50%,-50%);
+color:red;
+font-size: 2rem;
+}
+#text{
+    font-size:2rem;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  background: rgb(175,72,0);
+background: linear-gradient(90deg, rgba(175,72,0,1) 3%, rgba(255,169,77,1) 92%);
+}
+#skins{
+    font-size:2rem;
+}
+
+/*ul {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  width: 300px;
+  height:200px;
+  left: 20px;
+  right: 20px;
+  overflow: scroll;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  -webkit-overflow-scrolling: touch;
+}
+*/
+li {
+ cursor: pointer;
+}
+
+.modal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    border:1px solid black;
+    border-radius: 10px;
+    z-index:20;
+    background-color:white;
+    height:600px;
+    width:1000px;
+    background: rgb(91,92,182);
+background: linear-gradient(90deg, rgba(91,92,182,1) 18%, rgba(61,186,212,1) 94%);
+    overflow-y: scroll;
+}
+.modal.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+#close-button{
+cursor:pointer;
+border:none;
+outline:none;
+background:none;
+font-size:3rem;
+font-weight: bold;
+position:fixed;
+}
+#modal-body{
+    padding:10px 15px;
+}
+li{
+    display:inline-block;
+    width: 300px;
+    height:500px;
+line-height: 110px;
+margin-right:5px;
+}
+#overlay{
+    position:fixed;
+    opacity:0;
+     transition: 200ms ease-in-out;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    background-color:rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+#overlay.active{
+    pointer-events: all;
+    opacity:1;
+}
+.skinsButton{
+    top:70%;
+    word-spacing:4px;
+    font-size:25px;
+    padding:10px 10px;
+}
+@font-face{
+    font-family:"RubberBiscuit";
+    src:url("rubberbiscuit.ttf");
+}
+@font-face{
+    font-family:"Arcade";
+    src:url("ARCADECLASSIC.TTF");
+}
+#name{
+top:38%;
+position:fixed;
+height: 30px;
+left:50%;
+transform: translate(-50%, -50%);
+font-family: "Arcade";
+}
+.leaderBoard{
+    color:red;
+    position: fixed;
+    left:80%;
+    top:30%;
+    transform: translate(-50%,-50%);
+    border:red 2px solid;
+}
+#leaderText{
+    text-align: center;
+    font-family: "Arcade";
+    font-size:40px;
+    word-spacing: 4px;
+    border:red 2px solid;
+}
+.leaderBoard li{
+text-align: center;
+    border: red 2px solid;
+height:100px;
+width: 100%;
+font-family: "Arcade";
+font-size:30px;
 }

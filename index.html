@@ -10,15 +10,43 @@
 </head>
 
 <body>
+
     <div id="game">
-        <div id="character"><img src="MONKE.png" alt=""></div>
+
+
+        <ul class="leaderBoard" id="leaderBoard">
+            <p id="leaderText">Leader Board</p>
+
+        </ul>
+        <p id="score">Score: 0
+        </p>
+        <p id="proTip">Pro tip: "Say monkey jump"</p>
+        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="name" name="name"
+            id="name" placeholder="Enter Your Name" />
+        <button id="button" class="button4">Start</button>
+        <button id="open-button" class="button4 skinsButton">Open Skins Menu</button>
+        <div class="modal" id="modal">
+
+
+            <button id="close-button">&times;</button>
+            <div id="modal-body">
+                <ul id="skins">
+
+                </ul>
+            </div>
+        </div>
+        <div id="overlay"></div>
+        <div id="character"></div>
 
         <div id="block"></div>
     </div>
-    <p id="text">Voice Input:</p>
-    <p id="score">Score: 0</p>
+    <div id="text">
+        <p>Voice Input:</p>
+    </div>
+
 </body>
-<script src="script.js">
+<script type="module" src="script.js">
+
 </script>
 
 </html>
